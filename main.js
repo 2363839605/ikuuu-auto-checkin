@@ -78,31 +78,20 @@ function checkIn(cookie) {
 }
 
 async function main() {
-    let email;
-    let passwd;
-    if (process.env.EMAIL && process.env.PASSWD) {
-        email = process.env.EMAIL;
-        passwd = process.env.PASSWD;
-        console.log(email);
-      } else {
-        console.log("ENV ERROR");
-        process.exit(1);
-      }
-    const accounts = [
-        { email: email.split(0,18), passwd: passwd.split(0,7) },
-        { email: email.split(19), passwd: passwd.split(8) },
-        // 可以添加更多账号
-      ];
-      
-      for (let account of accounts) {
-        console.log(`账号:`,account.email)
-        let email = account.email;
-        let passwd = account.passwd;
-        let cookie = await logIn(email, passwd);
-        checkIn(cookie);
-      }
+  let email;
+  let passwd;
 
+  if (process.env.EMAIL && process.env.PASSWD) {
+    email = process.env.EMAIL;
+    passwd = process.env.PASSWD;
+  } else {
+    console.log("ENV ERROR");
+    process.exit(1);
+  }
 
+  let cookie = await logIn(email, passwd);
+
+  checkIn(cookie);
 }
 
 main();
