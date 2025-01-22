@@ -83,13 +83,14 @@ async function main() {
     if (process.env.EMAIL && process.env.PASSWD) {
         email = process.env.EMAIL;
         passwd = process.env.PASSWD;
+        console.log(email);
       } else {
         console.log("ENV ERROR");
         process.exit(1);
       }
     const accounts = [
-        { email: email.split(0,email.indexOf("\n")), passwd: passwd.split(0,email.indexOf("\n")) },
-        { email: email.split(email.indexOf("\n")), passwd: passwd.split(email.indexOf("\n")) },
+        { email: email.split(0,email.indexOf('\n')), passwd: passwd.split(0,email.indexOf("\n")) },
+        { email: email.split(email.indexOf('\n')), passwd: passwd.split(email.indexOf("\n")) },
         // 可以添加更多账号
       ];
       
