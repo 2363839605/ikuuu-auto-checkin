@@ -89,8 +89,8 @@ async function main() {
         process.exit(1);
       }
     const accounts = [
-        { email: email.split(0,email.indexOf('\n')), passwd: passwd.split(0,email.indexOf("\n")) },
-        { email: email.split(email.indexOf('\n')), passwd: passwd.split(email.indexOf("\n")) },
+        { email: email.split(0,18), passwd: passwd.split(0,7) },
+        { email: email.split(19), passwd: passwd.split(8) },
         // 可以添加更多账号
       ];
       
